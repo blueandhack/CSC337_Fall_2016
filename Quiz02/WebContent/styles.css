@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: cyan;
+}
+
+h3 {
+	background-color: yellow;
+	font-family: cursive;
+	font-weight: bold;
+	color: blue;
+}
+
+dt {
+	font-family: sans-serif;
+	color: red;
+	font-size: 1.8em;
+	font-style: italic;
+	font-weight: bold;
+	font-style: italic;
+}
+
+dd {
+	color: green;
+	font-size: 1.2em;
+	font-weight: bold;
+	font-family: courier;
+}
