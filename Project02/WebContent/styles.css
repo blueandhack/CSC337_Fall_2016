@@ -1,34 +1,118 @@
 @CHARSET "UTF-8";
 
 body {
-	background-color: #DADED1;
+	background-image: url("./images/moviebg.png");
 }
 
 .banner {
-	/*text-align: center;*/
-	background-image: url("./imgaes/ranchidbannerbg.png");
+	background-image: url("./images/rancidbannerbg.png");
 	height: 50px;
-	width: 1000px;
 }
 
 h1 {
 	text-align: center;
-	text-shadow: 2px 2px #696969;
+	text-shadow: 2px 2px dimgray;
+	font-size: 24pt;
+	font-weight: bold;
+	font-family: Georgia, "Times New Roman", sans-serif;
 }
 
 .box {
 	width: 800px;
-	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 	border-radius: 25px;
 	box-shadow: 10px 10px 5px gray;
-	text-align: center;
-	text-align: center;
+	background-color: darkseagreen;
+	margin-right: auto;
 }
 
 .box-banner {
-	background-image: url("./imgaes/rottenlargebg.png");
+	float: left;
+	width: 550px;
+	border-top-left-radius: 25px;
+	background-image: url("./images/rottenlargebg.png");
+	width: 550px;
 }
 
 .box-banner img {
-	text-align: left;
+	border-top-left-radius: 25px;
+}
+
+.box-banner-text {
+	font-size: 48pt;
+	font-family: sans-serif;
+	color: red;
+	position: relative;
+	left: 30px;
+	bottom: 25px;
+}
+
+.poster {
+	float: left;
+	width: 250px;
+}
+
+.poster img {
+	border-top-right-radius: 25px;
+}
+
+.review {
+	margin-top: -333px;
+	width: 550px;
+	height: 890px;
+	float: left;
+	background: lightgray;
+	font-size: 10pt;
+}
+
+.review-right {
+	float: left;
+}
+
+.review-left {
+	float: left;
+}
+
+.review-box-left {
+	width: 275px;
+}
+
+.review-box-right {
+	width: 275px;
+}
+
+.review-box-section {
+	border: 2px solid darkgray;
+	border-radius: 20px;
+	margin: 10px 10px 10px 10px;
+	background-color: white;
+}
+
+p img {
+	float: left;
+}
+
+.right-sidebar {
+	width: 250px;
+	float: right;
+	height: 570px;
+	font-size: 10px;
+}
+
+.rigth-sidebar dd, dt {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+dt {
+	font-weight: bold;
+}
+
+li {
+	list-style-type: none;
+}
+
+.footer {
+	text-align: center;
 }
