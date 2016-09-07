@@ -1,4 +1,4 @@
-@CHARSET "UTF-8";
+@charset "utf-8";
 
 body {
 	background-image: url("./images/moviebg.png");
@@ -23,7 +23,7 @@ h1 {
 	margin-right: auto;
 	border-radius: 25px;
 	box-shadow: 10px 10px 5px gray;
-	background-color: darkseagreen;
+	background-color: honeydew;
 	margin-right: auto;
 }
 
@@ -44,8 +44,8 @@ h1 {
 	font-family: sans-serif;
 	color: red;
 	position: relative;
-	left: 30px;
-	bottom: 25px;
+	left: 110px;
+	bottom: 90px;
 }
 
 .poster {
@@ -68,10 +68,12 @@ h1 {
 
 .review-right {
 	float: left;
+	margin-top: -5px;
 }
 
 .review-left {
 	float: left;
+	margin-top: -5px;
 }
 
 .review-box-left {
@@ -89,6 +91,11 @@ h1 {
 	background-color: white;
 }
 
+.review-people {
+	margin-left: 10px;
+	margin-top: -9px;
+}
+
 p img {
 	float: left;
 }
@@ -97,6 +104,7 @@ p img {
 	width: 250px;
 	float: right;
 	height: 570px;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10px;
 }
 
@@ -109,10 +117,22 @@ dt {
 	font-weight: bold;
 }
 
+dd {
+	width: 200px;
+}
+
+ul {
+	margin-left: -40px;
+	margin-top: -1px;
+}
+
 li {
 	list-style-type: none;
 }
 
 .footer {
+	background-color: darkseagreen;
+	border-radius: 25px;
 	text-align: center;
+	height: 1000px;
 }
