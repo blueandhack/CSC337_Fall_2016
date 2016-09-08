@@ -154,3 +154,9 @@ fabric.properties
 # modules.xml
 # .idea/misc.xml 
 # *.ipr
+workspace.xml
+Project03.iml
+modules.xml
+profiles_settings.xml
+misc.xml
+php.xml
