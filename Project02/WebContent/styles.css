@@ -23,16 +23,15 @@ h1 {
 	margin-right: auto;
 	border-radius: 25px;
 	box-shadow: 10px 10px 5px gray;
-	background-color: honeydew;
 	margin-right: auto;
 }
 
 .box-banner {
 	float: left;
 	width: 550px;
-	border-top-left-radius: 25px;
+	height: 83px;
 	background-image: url("./images/rottenlargebg.png");
-	width: 550px;
+	border-top-left-radius: 25px;
 }
 
 .box-banner img {
@@ -45,7 +44,7 @@ h1 {
 	color: red;
 	position: relative;
 	left: 110px;
-	bottom: 90px;
+	bottom: 88px;
 }
 
 .poster {
@@ -60,40 +59,44 @@ h1 {
 .review {
 	margin-top: -333px;
 	width: 550px;
-	height: 890px;
+	height: 950px;
 	float: left;
 	background: lightgray;
 	font-size: 10pt;
 }
 
+.column {
+	width: 275px;
+	float: left;
+}
+
 .review-right {
 	float: left;
-	margin-top: -5px;
+	margin-top: -9px;
+	width: 94%;
+	margin-left: 2%;
 }
 
 .review-left {
 	float: left;
-	margin-top: -5px;
-}
-
-.review-box-left {
-	width: 275px;
-}
-
-.review-box-right {
-	width: 275px;
+	margin-top: -9px;
+	width: 94%;
+	margin-left: 2%;
 }
 
 .review-box-section {
-	border: 2px solid darkgray;
+	font-family: Georgia, "Times New Roman", sans-serif;
 	border-radius: 20px;
 	background-color: white;
 	padding: 8px;
+	overflow: hidden;
+	border: 2px solid darkgray;
 }
 
 .review-people {
-	margin-left: 10px;
-	margin-top: -9px;
+	font-style: italic;
+	overflow: hidden;
+	margin-bottom: 15px;
 }
 
 p img {
@@ -104,19 +107,16 @@ p img {
 .right-sidebar {
 	width: 250px;
 	float: right;
-	height: 570px;
+	height: 680px;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10px;
-}
-
-.rigth-sidebar dd, dt {
-	padding-left: 12px;
-	padding-right: 12px;
+	font-size: 10pt;
 }
 
 dt {
 	font-weight: bold;
 	padding-top: 5px;
+	padding-left: 12px;
+	padding-right: 12px;
 }
 
 dd {
@@ -137,5 +137,5 @@ li {
 	background-color: darkseagreen;
 	border-radius: 25px;
 	text-align: center;
-	height: 1010px;
+	height: 1070px;
 }
