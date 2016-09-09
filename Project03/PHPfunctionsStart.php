@@ -11,10 +11,12 @@
 // Given three string arguments, return the one the comes first alphabetically
 function minOfThree($a, $b, $c)
 {
-    if ($a > $b) {
-        if ($b < c) {
-
-        }
+    if ($a < $b && $a < $c) {
+        return $a;
+    } else if ($b < $a && $b < $c) {
+        return $b;
+    } else {
+        return $c;
     }
 }
 
@@ -34,7 +36,23 @@ function minOfThree($a, $b, $c)
 // If the input is not a valid Roman numeral, return -1
 function romanNumeral($ch)
 {
-
+    if ($ch == 'I' || $ch == 'i') {
+        return 1;
+    } else if ($ch == 'V' || $ch == 'v') {
+        return 5;
+    } else if ($ch == 'X' || $ch == 'x') {
+        return 10;
+    } else if ($ch == 'L' || $ch == 'l') {
+        return 50;
+    } else if ($ch == 'C' || $ch == 'c') {
+        return 100;
+    } else if ($ch == 'D' || $ch == 'd') {
+        return 500;
+    } else if ($ch == 'M' || $ch == 'm') {
+        return 1000;
+    } else {
+        return -1;
+    }
 }
 
 // 3) sumOfFirstInts
@@ -43,7 +61,11 @@ function romanNumeral($ch)
 // sumOfFirstInts(3) == 1 + 2 + 3
 function sumOfFirstInts($n)
 {
-
+    $sum = 0;
+    for ($i = 1; $i <= $n; $i++) {
+        $sum += $i;
+    }
+    return $sum;
 }
 
 // 4) howSwedish
@@ -97,7 +119,14 @@ function isStringSorted($str)
 //
 function isPrime(int $num)
 {
-
+    $flag = true;
+    for ($i = 2; $i < $num; $i++) {
+        if ($num % $i == 0) {
+            $flag = false;
+            break;
+        }
+    }
+    return $flag;
 }
 
 
