@@ -61,6 +61,9 @@ function romanNumeral($ch)
 // sumOfFirstInts(3) == 1 + 2 + 3
 function sumOfFirstInts($n)
 {
+    if ($n <= 0) {
+        return 0;
+    }
     $sum = 0;
     for ($i = 1; $i <= $n; $i++) {
         $sum += $i;
@@ -82,7 +85,29 @@ function sumOfFirstInts($n)
 // howSwedish("abbabba!") returns 2
 function howSwedish($str)
 {
+    $count = 0;
 
+    $newStr = "";
+    for ($i = 0; $i < strlen($str); $i++) {
+        if (substr($str, $i, 1) != " ") {
+            $newStr = $newStr . strtolower(substr($str, $i, 1));
+        }
+    }
+
+    if (strlen($newStr) < 4) {
+        return $count;
+    }
+
+    for ($i = 0; $i < strlen($newStr) - 3; $i++) {
+        if (substr($newStr, $i, 1) == 'a' && substr($newStr, $i + 1, 1) == 'b'
+            && substr($newStr, $i + 2, 1) == 'b' && substr($newStr, $i + 3, 1) == 'a'
+        ) {
+            $count++;
+        }
+
+    }
+
+    return $count;
 }
 
 // 5) isStringSorted
@@ -96,7 +121,12 @@ function howSwedish($str)
 // isStringSorted("12321") returns false
 function isStringSorted($str)
 {
-
+    for ($i = 0; $i < strlen($str) - 1; $i++) {
+        if (substr($str, $i, 1) > substr($str, ($i + 1), 1)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 // 6) isPrime
@@ -117,9 +147,12 @@ function isStringSorted($str)
 // that divides the argument num by every integer from 2 to num-1, returning
 // false if num was found to be evenly divisible by any one of those.
 //
-function isPrime(int $num)
+function isPrime($num)
 {
     $flag = true;
+    if ($num == 2) {
+        return true;
+    }
     for ($i = 2; $i < $num; $i++) {
         if ($num % $i == 0) {
             $flag = false;
@@ -136,6 +169,34 @@ function isPrime(int $num)
 // Note: 'abe' < 'ben' and 5 > 3
 function isArraySorted($arr)
 {
+
+//    $newArr = array();
+//    if (count($arr) <= 1) {
+//        return true;
+//    }
+//
+//    for ($i = 0; $i < count($arr); $i++) {
+//        $newArr[] = $arr;
+//    }
+//
+//    rsort($arr);
+//
+//    for ($i = 0; $i < count($arr); $i++) {
+//        echo $arr[$i];
+//    }
+//
+//    for ($i = 0; $i < count($arr); $i++) {
+//        if ($arr[$i] != $newArr[$i]) {
+//            return false;
+//        }
+//    }
+//    return true;
+
+    for ($i = 0; $i < count($arr) - 1; $i++) {
+        if ($arr[$i] > $arr[$i + 1]) {
+            return false;
+        }
+    }
     return true;
 }
 
@@ -147,7 +208,17 @@ function isArraySorted($arr)
 // numberOfPairs(array("A", "BB", "CCC")) returns zero
 function numberOfPairs($arr)
 {
-    return 1;
+    $count = 0;
+    for ($i = 0; $i < count($arr); $i++) {
+        for ($j = $i; $j < count($arr); $j++) {
+            if ($i != $j) {
+                if ($arr[$i] == $arr[$j]) {
+                    $count++;
+                }
+            }
+        }
+    }
+    return $count;
 }
 
 /**
@@ -159,6 +230,7 @@ echo 'min(charlie, baker, able) is ' . minOfThree('charlie', 'baker', 'able') . 
 assert('a' == minOfThree('a', 'b', 'c'));
 assert('a' == minOfThree('b', 'a', 'c'));
 assert('a' == minOfThree('b', 'c', 'a'));
+assert('b' == minOfThree('b', 'd', 'e'));
 assert('First' == minOfThree('First', 'Second', 'Third'));
 
 echo "\n" . 'romanNumeral(M) is ' . romanNumeral('M') . "\n";
@@ -170,6 +242,7 @@ assert(5 == romanNumeral('V'));
 echo "\nhowSwedish(\"ABBA a b b a\")" . howSwedish("ABBA a b b a") . "\n";
 assert(2 == howSwedish("abbabba"));
 assert(2 == howSwedish("aBbAbBa"));
+assert(5 == howSwedish("aBbAbBaaaaabbabbabba"));
 assert(1 == howSwedish("abba"));
 assert(0 == howSwedish("none"));
 assert(0 == howSwedish("no"));
@@ -177,6 +250,7 @@ assert(0 == howSwedish("no"));
 echo "\n" . 'isStringSorted(abcddeeff)? ' . isStringSorted('abcddeeff') . "\n";
 assert(isStringSorted('abcddeeff'));
 assert(!isStringSorted('zyxa'));
+assert(isStringSorted('defggggg'));
 
 echo "\n" . 'sumOfFirstInts(5)? ' . sumOfFirstInts(5) . "\n";
 assert(0 == sumOfFirstInts(0));
@@ -185,6 +259,7 @@ assert(6 == sumOfFirstInts(3));
 assert(1 + 2 + 3 + 4 + 5 == sumOfFirstInts(5));
 
 echo "\n" . 'isPrime(7)? ' . isPrime(7) . "\n";
+assert(isPrime(2));
 assert(isPrime(7));
 assert(isPrime(11));
 assert(!isPrime(12));
@@ -203,19 +278,13 @@ assert(isArraySorted(array(
     5,
     99
 )));
-assert(isArraySorted(array(
-    -4,
-    1,
-    2,
-    2,
-    3,
-    5,
-    99
-)));
 assert(!isArraySorted(array(
     3,
     3,
     2
 )));
+
+assert(3 == numberOfPairs(array(1, 1, 1)));
+assert(0 == numberOfPairs(array("A", "BB", "CCC")));
 
 ?>
