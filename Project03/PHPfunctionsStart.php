@@ -203,6 +203,9 @@ function isArraySorted($arr)
 //        }
 //    }
 //    return true;
+    if (count($arr) == 0) {
+        return true;
+    }
 
     for ($i = 0; $i < count($arr) - 1; $i++) {
         if ($arr[$i] > $arr[$i + 1]) {
@@ -311,6 +314,5 @@ assert(2 == numberOfPairs(array("A", "A", "A", "CCC")));
 assert(1 == numberOfPairs(array("c", "A", "A", "CCC")));
 assert(2 == numberOfPairs(array("AA", "A", "AA", "AA", "A", "AA", "AA")));
 assert(4 == numberOfPairs(array("AA", "BB", "BB", "AA", "AA", "AA", "AA")));
-
 
 ?>
