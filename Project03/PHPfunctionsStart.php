@@ -203,21 +203,19 @@ function isArraySorted($arr)
 
 // 8) numberOfPairs
 // 
-// Return the number of pairs in array
-// numberOfPairs(array(1, 1, 1)) returns three
-// numberOfPairs(array("A", "BB", "CCC")) returns zero
+// Return the number of pairs in array.
+// numberOfPairs(array(1, 1, 1)) returns 2
+// numberOfPairs(array("A", "BB", "CCC")) returns 0
 function numberOfPairs($arr)
 {
     $count = 0;
-    for ($i = 0; $i < count($arr); $i++) {
-        for ($j = $i; $j < count($arr); $j++) {
-            if ($i != $j) {
-                if ($arr[$i] == $arr[$j]) {
-                    $count++;
-                }
-            }
+
+    for ($i = 0; $i < count($arr) - 1; $i++) {
+        if ($arr[$i] == $arr[$i + 1]) {
+            $count++;
         }
     }
+
     return $count;
 }
 
@@ -242,7 +240,7 @@ assert(5 == romanNumeral('V'));
 echo "\nhowSwedish(\"ABBA a b b a\")" . howSwedish("ABBA a b b a") . "\n";
 assert(2 == howSwedish("abbabba"));
 assert(2 == howSwedish("aBbAbBa"));
-assert(5 == howSwedish("aBbAbBaaaaabbabbabba"));
+assert(5 == howSwedish("aBbAbBaa aaa b b ab ba bba"));
 assert(1 == howSwedish("abba"));
 assert(0 == howSwedish("none"));
 assert(0 == howSwedish("no"));
@@ -256,6 +254,7 @@ echo "\n" . 'sumOfFirstInts(5)? ' . sumOfFirstInts(5) . "\n";
 assert(0 == sumOfFirstInts(0));
 assert(1 == sumOfFirstInts(1));
 assert(6 == sumOfFirstInts(3));
+assert(0 == sumOfFirstInts(-3));
 assert(1 + 2 + 3 + 4 + 5 == sumOfFirstInts(5));
 
 echo "\n" . 'isPrime(7)? ' . isPrime(7) . "\n";
@@ -284,7 +283,12 @@ assert(!isArraySorted(array(
     2
 )));
 
-assert(3 == numberOfPairs(array(1, 1, 1)));
+assert(2 == numberOfPairs(array(1, 1, 1)));
 assert(0 == numberOfPairs(array("A", "BB", "CCC")));
+assert(2 == numberOfPairs(array("A", "A", "A", "CCC")));
+assert(1 == numberOfPairs(array("c", "A", "A", "CCC")));
+assert(2 == numberOfPairs(array("AA", "A", "AA", "AA", "A", "AA", "AA")));
+assert(4 == numberOfPairs(array("AA", "BB", "BB", "AA", "AA", "AA", "AA")));
+
 
 ?>
