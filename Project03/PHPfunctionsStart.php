@@ -4,7 +4,7 @@
  * The code is quasi-tested with asserts given at the end of this one file.
  * Feel free to write more asserts (we will).
  *
- * Programmer: YOUR NAME
+ * Programmer: Yujia Lin
  */
 // 1) minOfThree
 //
@@ -15,8 +15,20 @@ function minOfThree($a, $b, $c)
         return $a;
     } else if ($b < $a && $b < $c) {
         return $b;
-    } else {
+    } else if ($c < $a && $c < $b) {
         return $c;
+    } else if ($a == $b && $a < $c) {
+        return $a;
+    } else if ($a == $b && $a > $c) {
+        return $c;
+    } else if ($b == $c && $a < $c) {
+        return $a;
+    } else if ($b == $c && $a > $c) {
+        return $c;
+    } else if ($a == $c && $a < $b) {
+        return $a;
+    } else {
+        return $b;
     }
 }
 
@@ -229,6 +241,16 @@ assert('a' == minOfThree('a', 'b', 'c'));
 assert('a' == minOfThree('b', 'a', 'c'));
 assert('a' == minOfThree('b', 'c', 'a'));
 assert('b' == minOfThree('b', 'd', 'e'));
+
+
+assert('a' == minOfThree('a', 'a', 'e'));
+assert('a' == minOfThree('d', 'd', 'a'));
+assert('b' == minOfThree('b', 'd', 'd'));
+assert('e' == minOfThree('f', 'e', 'e'));
+assert('b' == minOfThree('b', 'd', 'b'));
+assert('a' == minOfThree('e', 'a', 'e'));
+
+
 assert('First' == minOfThree('First', 'Second', 'Third'));
 
 echo "\n" . 'romanNumeral(M) is ' . romanNumeral('M') . "\n";
