@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Part 1</title>
-    <meta charset="utf-8"/>
-</head>
 <?php
-// Read data from input file and establish some local variables 
+// Read data from input file and establish some local variables
 // $movie could be tmnt, tmnt2, mortalkombat, princessbride (see the folders
 // in this project), or a new one.
 //
 // These PHP variables can be used anywhere below in a PHP block.
 //
-$movie = "princessbride";
+$movie = "./" . $_GET["film"];
 $imageFileName = $movie . "/overview.png";
-$infoTextFileName = $movie . "/info.txt";
-$overviewTextFileName = $movie . "/overview.txt";
+$infoTextFileName = file($movie . "/info.txt");
+$overviewTextFileName = file($movie . "/overview.txt");
 ?>
+<head>
+    <title><?php print($infoTextFileName[0]) ?></title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="movies.css">
+</head>
 <body>
 
 
@@ -23,12 +24,16 @@ $overviewTextFileName = $movie . "/overview.txt";
     <img src="images/rancidbanner.png" alt="Rancid Tomatoes">
 </div>
 
-<h1><?php $infoTextFileName[0] ?> (<?php $infoTextFileName[1] ?>)</h1>
+<h1><?php print($infoTextFileName[0]) ?> (<?php echo $infoTextFileName[1] ?>)</h1>
 
 <div class="box">
     <div class="box-banner">
-        <img src="images/rottenlarge.png" alt="Rotten"/>
-        <div class="box-banner-text"><?php $infoTextFileName[2] ?>%</div>
+        <?php if ($infoTextFileName[2] < 60) { ?>
+            <img src="images/rottenlarge.png" alt="Rotten"/>
+        <?php } else { ?>
+            <img src="images/freshlarge.png" alt="Rotten"/>
+        <?php } ?>
+        <div class="box-banner-text"><?php echo $infoTextFileName[2] ?>%</div>
     </div>
 
     <div class="poster">
@@ -40,7 +45,7 @@ $overviewTextFileName = $movie . "/overview.txt";
         <dl>
             <?php
             for ($line = 0; $line < count($overviewTextFileName); $line++) {
-                $string = explode(":", $overviewTextFileName);
+                $string = explode(":", $overviewTextFileName[$line]);
                 print ("<dt>" . $string[0] . "</dt><dd>" . $string[1] . "</dd>");
             }
             ?>
