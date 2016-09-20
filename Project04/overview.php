@@ -7,7 +7,7 @@
 //
 // These PHP variables can be used anywhere below in a PHP block.
 //
-$movie = "./" . $_GET["film"];
+$movie = "./" . $_GET ["film"];
 $imageFileName = $movie . "/overview.png";
 $infoTextFileName = file($movie . "/info.txt");
 $overviewTextFileName = file($movie . "/overview.txt");
@@ -26,35 +26,33 @@ $overviewTextFileName = file($movie . "/overview.txt");
 
 <h1><?php print($infoTextFileName[0]) ?> (<?php echo $infoTextFileName[1] ?>)</h1>
 
-<div class="box">
-    <div class="box-banner">
-        <?php if ($infoTextFileName[2] < 60) { ?>
-            <img src="images/rottenlarge.png" alt="Rotten"/>
-        <?php } else { ?>
-            <img src="images/freshlarge.png" alt="Rotten"/>
-        <?php } ?>
-        <div class="box-banner-text"><?php echo $infoTextFileName[2] ?>%</div>
-    </div>
 
-    <div class="poster">
-        <img src="<?= $imageFileName ?>" alt="general overview"/>
-    </div>
-
-
-    <div class="right-sidebar">
-        <dl>
-            <?php
-            for ($line = 0; $line < count($overviewTextFileName); $line++) {
-                $string = explode(":", $overviewTextFileName[$line]);
-                print ("<dt>" . $string[0] . "</dt><dd>" . $string[1] . "</dd>");
-            }
-            ?>
-        </dl>
-    </div>
-    <div class="footer">
-        <p>(1-10) of 88</p>
-    </div>
+<div class="box-banner">
+    <?php if ($infoTextFileName[2] < 60) { ?>
+        <img src="images/rottenlarge.png" alt="Rotten"/>
+        <span class="box-banner-text"><?php echo $infoTextFileName[2] ?>%</span>
+    <?php } else { ?>
+        <img src="images/freshlarge.png" alt="Rotten"/>
+        <span class="box-banner-text-two"><?php echo $infoTextFileName[2] ?>%</span>
+    <?php } ?>
 </div>
+
+<div class="poster">
+    <img src="<?= $imageFileName ?>" alt="general overview"/>
+</div>
+
+
+<div class="right-sidebar">
+    <dl>
+        <?php
+        for ($line = 0; $line < count($overviewTextFileName); $line++) {
+            $string = explode(":", $overviewTextFileName [$line]);
+            print ("<dt>" . $string [0] . "</dt><dd>" . $string [1] . "</dd>");
+        }
+        ?>
+    </dl>
+</div>
+
 
 </body>
 </html>
