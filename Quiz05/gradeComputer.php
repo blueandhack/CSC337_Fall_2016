@@ -1,12 +1,13 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Yoga
+ * User: Yujia Lin
  * Date: 9/26/16
  * Time: 3:16 PM
  */
 $tests = explode(",", $_POST['tests']);
 $projects = explode(",", $_POST['projects']);
+$weightTest = (float)$_POST['weightTest'];
+$weightProject = (float)$_POST['weightProject'];
 
 $testsScores = array();
 
@@ -38,8 +39,8 @@ for ($i = 0; $i < count($projectsScores); $i++) {
 
 $projectTotal = $projectTotal / count($projectsScores);
 
-$testGrade = round((40 / 100 * $testTotal), 1);
-$projectGrade = round((60 / 100 * $projectTotal), 1);
+$testGrade = round(($weightTest * $testTotal), 1);
+$projectGrade = round(($weightProject * $projectTotal), 1);
 
 echo "Tests are 40% of " . round($testTotal, 1) . ", which is " . $testGrade . "<br>";
 echo "Projects are 60% of " . round($projectTotal, 1) . ", which is " . $projectGrade . "<br>";

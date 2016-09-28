@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Quiz 05</title>
 </head>
 <body>
 
 <h2>Gradenator</h2>
 <h5>Enter all grades separated by commas</h5>
 <h5>Enter additional score to play what if analysis</h5>
-<form action="gradeComputer.php" method="post">
+<form action="./gradeComputer.php" method="post">
     <input type="text" name="tests"/> All Tests<br>
     <input type="text" name="projects"/> All Projects<br>
+    <input type="hidden" name="weightProject" value="0.6">
+    <input type="hidden" name="weightTest" value="0.4">
     <input type="submit" value="submit"/>
 </form>
 </body>
