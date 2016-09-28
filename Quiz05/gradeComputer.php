@@ -38,5 +38,11 @@ for ($i = 0; $i < count($projectsScores); $i++) {
 
 $projectTotal = $projectTotal / count($projectsScores);
 
-echo "Tests are 40% of " . round($testTotal, 1) . ", which is " . round((40 * $testTotal / 100), 1) . "<br>";
-echo "Projects are 60% of " . round($projectTotal, 1) . ", which is " . round((60 * $projectTotal / 100), 1) . "<br>";
+$testGrade = round((40 / 100 * $testTotal), 1);
+$projectGrade = round((60 / 100 * $projectTotal), 1);
+
+echo "Tests are 40% of " . round($testTotal, 1) . ", which is " . $testGrade . "<br>";
+echo "Projects are 60% of " . round($projectTotal, 1) . ", which is " . $projectGrade . "<br>";
+echo "<br>Course grade: " . ($testGrade + $projectGrade);
+
+?>
