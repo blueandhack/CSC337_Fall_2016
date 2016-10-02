@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <?php
 // Read data from input file and establish some local variables
 // $movie could be tmnt, tmnt2, mortalkombat, princessbride (see the folders
@@ -45,6 +45,7 @@ $overviewTextFileName = file($movie . "/overview.txt");
             </select>
             <input type="submit" value="Get Movie Overview">
         </div>
+    </form>
 </div>
 
 <div class="box">
