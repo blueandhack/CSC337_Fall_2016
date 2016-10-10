@@ -3,20 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <title>Title</title>
+    <title>Purchase Form</title>
 </head>
 <body>
 
-<h1>Widget Purchase</h1>
-<form>
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input type="text">
-    <input>
-    <input>
-
-</form>
-<h1>Yujia Lin</h1>
+<h1 class="blue-h1">Widget Purchase</h1>
+<fieldset class="box">
+    <form action="receipt.php" method="post">
+        <label>First Name&nbsp;</label><input type="text" name="firstName" pattern="[A-Z a-z]*" required><br>
+        <label>Last Name&nbsp;</label><input type="text" name="lastName" pattern="[A-Z a-z]*" required><br>
+        <label>Phone&nbsp;</label><input type="text" name="phoneNumber"
+                                         pattern="^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$" required><br>
+        <label>City&nbsp;</label><input type="text" name="city" pattern="[A-Z a-z]*" required><br>
+        <label>State&nbsp;</label>
+        <select name="state" required>
+            <option value="AZ">Arizona</option>
+            <option value="CA">California</option>
+            <option value="WA">Washington</option>
+        </select><br>
+        <label>ZIP&nbsp;</label><input type="text" name="zip" pattern="[0-9]{5}" required><br>
+        <fieldset class="size">
+            <legend>Size:</legend>
+            <input type="radio" name="size" value="small" required> Small $2.00<br>
+            <input type="radio" name="size" value="medium"> Medium $2.65<br>
+            <input type="radio" name="size" value="large"> Large $2.99<br>
+        </fieldset>
+        <input class="number" name="number" type="number" min="1" max="5" required>
+        <label class="left-label">Quantity(1..5)</label><br>
+        <input class="submit" type="submit" value="Continue">
+    </form>
+</fieldset>
+<h1 class="blue-h1">Yujia Lin</h1>
 </body>
 </html>
