@@ -1,44 +1,44 @@
 .blue-h1 {
-    background-color: blue;
-    color: #FFFFFF;
+	background-color: blue;
+	color: #FFFFFF;
 }
 
 .box {
-    width: 350px;
+	width: 350px;
 }
 
 input {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 label {
-    display: inline-block;
-    width: 130px;
-    text-align: right;
-    margin-top: 10px;
+	display: inline-block;
+	width: 130px;
+	text-align: right;
+	margin-top: 10px;
 }
 
 .size {
-    margin-top: 40px;
+	margin-top: 40px;
 }
 
 .number {
-    display: block;
-    margin-left: 100px;
+	display: block;
+	margin-left: 100px;
 }
 
 .left-label {
-    text-align: right;
-    margin-left: 100px;
+	text-align: right;
+	margin-left: 100px;
 }
 
 .submit {
-    margin-top: 70px;
-    margin-left: 140px;
-    margin-bottom: 30px;
+	margin-top: 70px;
+	margin-left: 140px;
+	margin-bottom: 30px;
 }
 
 .receipt-background {
-    background-color: pink;
-    width: 400px;
+	background-color: pink;
+	width: 400px;
 }
