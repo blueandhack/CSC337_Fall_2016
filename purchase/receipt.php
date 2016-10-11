@@ -21,7 +21,7 @@ $total = 0;
 if ($size == 'small') {
     $value = 2.00;
     $total = $value * $quantity;
-} else if ($size = 'medium') {
+} else if ($size == 'medium') {
     $value = 2.65;
     $total = $value * $quantity;
 } else {
