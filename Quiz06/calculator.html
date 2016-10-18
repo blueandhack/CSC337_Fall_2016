@@ -6,14 +6,38 @@
 </head>
 <body>
 <script>
-    function click() {
-        var x = document.getElementById("getX").valueOf();
-        console.log(x);
+    function getResults() {
+        var x = document.getElementById("getX").value;
+        var y = document.getElementById("getY").value;
+        x = parseInt(x);
+        y = parseInt(y);
+        if (isNaN(x) || isNaN(y)) {
+            alert("Please input numbers.");
+        } else {
+            var block = document.getElementById("result");
+            block.style.width = "350px";
+            block.style.color = "pink";
+            block.style.fontFamily = "Courier";
+            block.style.fontSize = "12pt";
+            block.style.backgroundColor = "black";
+            block.style.border = "thick solid red";
+
+            var show = document.getElementById("showResult");
+            show.style.padding = "10px 10px 10px 20px";
+            show.innerHTML = x + " + " + y + " = " + (x + y) + "<br>" + x + " - " + y + " = " + (x - y) + "<br>"
+                    + x + " * " + y + " = " + (x * y) + "<br>" + x + " / " + y + " = " + (x / y) + "<br>"
+                    + x + " % " + y + " = " + (x % y) + "<br>";
+        }
     }
 </script>
-<h1>Calculator</h1>
-<label>X</label>&nbsp;&nbsp;&nbsp;<input id="getX" type="text" required><br>
-<label>Y</label>&nbsp;&nbsp;&nbsp;<input id="getY" type="text" required><br>
-<button onclick="click();" id="show">Show results</button>
+<h4>Calculator</h4>
+<label>x</label>&nbsp;&nbsp;&nbsp;<input id="getX" type="text"><br>
+<label>y</label>&nbsp;&nbsp;&nbsp;<input id="getY" type="text"><br>
+<button onclick="getResults();" id="show">Show results</button>
+<br>
+<br>
+<div id="result">
+    <div id="showResult"></div>
+</div>
 </body>
 </html>
