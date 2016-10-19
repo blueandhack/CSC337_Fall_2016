@@ -15,15 +15,16 @@
             alert("Please input numbers.");
         } else {
             var block = document.getElementById("result");
-            block.style.width = "350px";
-            block.style.color = "pink";
+            block.style.width = "310px";
+            block.style.color = "white";
             block.style.fontFamily = "Courier";
             block.style.fontSize = "12pt";
             block.style.backgroundColor = "black";
             block.style.border = "thick solid red";
+            block.style.float = "left";
 
             var show = document.getElementById("showResult");
-            show.style.padding = "10px 10px 10px 20px";
+            show.style.padding = "10px 10px 10px 10px";
             show.innerHTML = x + " + " + y + " = " + (x + y) + "<br>" + x + " - " + y + " = " + (x - y) + "<br>"
                     + x + " * " + y + " = " + (x * y) + "<br>" + x + " / " + y + " = " + (x / y) + "<br>"
                     + x + " % " + y + " = " + (x % y) + "<br>";
