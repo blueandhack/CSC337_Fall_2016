@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-
+<h4>Click the image to see it grow.</h4>
+<br>
+<img id="grow" onclick="grow()" src="The_Matrix_Poster.jpg" alt="The Matrix">
+<script>
+    function grow() {
+        var pic = document.getElementById('grow');
+        var h = pic.style.height;
+        var w = pic.style.width;
+        pic.style.height = h + 1;
+        pic.style.width = w + 1;
+    }
+</script>
 </body>
 </html>
