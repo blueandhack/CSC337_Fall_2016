@@ -1,0 +1,33 @@
+header {
+    background: blue;
+    color: white;
+    font-size: 30pt;
+    text-align: center;
+}
+
+nav {
+    width: 200px;
+    float: left;
+    background-color: lightgrey;
+    height: 600px;
+}
+
+button {
+    margin-left: 10px;
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+iframe {
+    height: 600px;
+    width: 900px;
+    border: none;
+}
+
+footer {
+    clear: left;
+    background: blue;
+    color: white;
+    font-size: 30pt;
+    text-align: center;
+}

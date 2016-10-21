@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p onclick="change()">Click this text</p>
+<hr>
+<div id="change">Click "Click this text" above to change this div in several ways</div>
+<script>
+    function change() {
+        var show = document.getElementById("change");
+        show.innerHTML = "Change innerHTML, font 24 px, border 5px, width 300px, float right, padding 50px, background? you guess";
+        show.style.fontSize = "24px";
+        show.style.border = "5px";
+        show.style.width = "300px";
+        show.style.float = "right";
+        show.style.padding = "50px 50px 50px 50px";
+        show.style.backgroundColor = "gray";
+
+    }
+
+</script>
+</body>
+</html>

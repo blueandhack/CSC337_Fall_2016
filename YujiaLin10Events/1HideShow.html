@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hide / Show</title>
+</head>
+<body>
+<script>
+    var flag = 1;
+    function hideOrShow() {
+        var label = document.getElementById("hide");
+        if (flag == 1) {
+            label.style.display = "none";
+            flag = 0;
+        } else {
+            label.style.display = "block";
+            flag = 1;
+        }
+    }
+
+</script>
+<button onclick="hideOrShow()">Hide</button>
+
+<h3 id="hide">This text will appear and disappear.</h3>
+</body>
+</html>

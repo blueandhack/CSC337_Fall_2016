@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<script>
+    <!-- Name: Yujia Lin -->
+    function getResults() {
+        var x = document.getElementById("getX").value;
+        var y = document.getElementById("getY").value;
+        x = parseInt(x);
+        y = parseInt(y);
+        if (isNaN(x) || isNaN(y)) {
+            alert("Please input numbers.");
+        } else {
+            var block = document.getElementById("result");
+            block.style.width = "310px";
+            block.style.color = "white";
+            block.style.fontFamily = "Courier";
+            block.style.fontSize = "12pt";
+            block.style.backgroundColor = "black";
+            block.style.border = "thick solid red";
+            block.style.float = "left";
+            var show = document.getElementById("showResult");
+            show.style.padding = "10px 10px 10px 10px";
+            show.innerHTML = x + " + " + y + " = " + (x + y) + "<br>" + x + " - " + y + " = " + (x - y) + "<br>"
+                    + x + " * " + y + " = " + (x * y) + "<br>" + x + " / " + y + " = " + (x / y) + "<br>"
+                    + x + " % " + y + " = " + (x % y) + "<br>";
+        }
+    }
+</script>
+<h4>Calculator</h4>
+<label>x</label>&nbsp;&nbsp;&nbsp;<input id="getX" type="text"><br>
+<label>y</label>&nbsp;&nbsp;&nbsp;<input id="getY" type="text"><br>
+<button onclick="getResults();" id="show">Show results</button>
+<br>
+<br>
+<div id="result">
+    <div id="showResult"></div>
+</div>
+</body>
+</html>
