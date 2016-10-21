@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<input id="left" type="text" value="Move me">
+<button onclick="moveMe()">Move left to right</button>
+<input id="right" type="text">
+<script>
+    function moveMe() {
+        var left = document.getElementById("left");
+        var right = document.getElementById("right");
 
+        right.value = left.value;
+        left.value = "";
+    }
+</script>
 </body>
 </html>
