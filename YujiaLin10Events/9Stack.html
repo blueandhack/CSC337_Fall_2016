@@ -5,6 +5,33 @@
     <title>Title</title>
 </head>
 <body>
+<label>Push </label><input id="number" onchange="stackPush()" type="text">
+<button id="pop" onclick="stackPop()">Pop</button>
 
+<ul id="show"></ul>
+<script>
+    var stack = [];
+    function stackPush() {
+        var number = parseInt(document.getElementById("number").value);
+        stack.push(number);
+        var show = document.getElementById("show");
+        document.getElementById("number").value = "";
+        var result = "";
+        for (var i = 0; i < stack.length; i++) {
+            result = "<li>" + stack[i] + "</li>" + result;
+        }
+        show.innerHTML = result;
+    }
+
+    function stackPop() {
+        stack.pop();
+        var show = document.getElementById("show");
+        var result = "";
+        for (var i = 0; i < stack.length; i++) {
+            result = "<li>" + stack[i] + "</li>" + result;
+        }
+        show.innerHTML = result;
+    }
+</script>
 </body>
 </html>

@@ -5,6 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
+<button onclick="growSize()">Increment by 1px</button>
+<p id="grow">Increase my point size by 1px each click.</p>
+<script>
+    function growSize() {
+        var text = document.getElementById("grow");
+        var style = window.getComputedStyle(text, null).getPropertyValue('font-size');
+        var fontSize = parseFloat(style);
+        text.style.fontSize = (parseInt(fontSize) + 1) + "px";
+    }
+</script>
 </body>
 </html>

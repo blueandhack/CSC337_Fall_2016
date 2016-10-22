@@ -5,6 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-
+<label>Enter a name: </label><input onchange="addName()" id="name" type="text">
+<p>The array of names:</p>
+<div id="show"></div>
+<script>
+    var names = [];
+    function addName() {
+        var name = document.getElementById("name").value;
+        names.push(name);
+        var show = document.getElementById("show");
+        var result = "";
+        for (var i = 0; i < names.length; i++) {
+            result = result + i + ": " + names[i] + "<br>";
+        }
+        show.innerHTML = result;
+        document.getElementById("name").value = "";
+    }
+</script>
 </body>
 </html>

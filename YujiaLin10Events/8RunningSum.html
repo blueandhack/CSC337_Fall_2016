@@ -5,6 +5,25 @@
     <title>Title</title>
 </head>
 <body>
-
+<label>Enter a number: </label><input id="number" onchange="runningSum()" type="text">
+<div id="show">
+    sum of [] = 0
+</div>
+<script>
+    var sum = 0;
+    var sumStr = "sum of [";
+    function runningSum() {
+        var number = parseInt(document.getElementById("number").value);
+        if (sum == 0) {
+            sum = sum + number;
+            sumStr = sumStr + number;
+        } else {
+            sum = sum + number;
+            sumStr = sumStr + "," + number;
+        }
+        document.getElementById("number").value = "";
+        document.getElementById("show").innerHTML = sumStr + "] = " + sum;
+    }
+</script>
 </body>
 </html>
