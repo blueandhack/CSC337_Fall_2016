@@ -7,14 +7,12 @@
 <body>
 <h4>Click the image to see it grow.</h4>
 <br>
-<img id="grow" onclick="growImage()" src="The_Matrix_Poster.jpg" alt="The Matrix" width="290" height="401">
+<img id="grow" onclick="growImage()" src="The_Matrix_Poster.jpg" alt="The Matrix" width="60">
 <script>
     function growImage() {
         var pic = document.getElementById('grow');
-        var h = pic.clientHeight;
         var w = pic.clientWidth;
-        pic.style.height = (parseInt(h) + 1) + "px";
-        pic.style.width = (parseInt(w) + 1) + "px";
+        pic.style.width = (parseInt(w) + 10) + "px";
     }
 </script>
 </body>

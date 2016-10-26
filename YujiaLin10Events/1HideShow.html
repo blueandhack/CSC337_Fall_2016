@@ -12,14 +12,16 @@
         if (flag == 1) {
             label.style.display = "none";
             flag = 0;
+            document.getElementById("button").innerHTML = "Show";
         } else {
             label.style.display = "block";
             flag = 1;
+            document.getElementById("button").innerHTML = "Hide";
         }
     }
 
 </script>
-<button onclick="hideOrShow()">Hide</button>
+<button id="button" onclick="hideOrShow()">Hide</button>
 
 <h3 id="hide">This text will appear and disappear.</h3>
 </body>

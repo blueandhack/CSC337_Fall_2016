@@ -6,6 +6,8 @@
 </head>
 <body>
 <label>Enter a number: </label><input id="number" onchange="runningSum()" type="text">
+<br>
+<br>
 <div id="show">
     sum of [] = 0
 </div>
@@ -14,15 +16,20 @@
     var sumStr = "sum of [";
     function runningSum() {
         var number = parseInt(document.getElementById("number").value);
-        if (sum == 0) {
-            sum = sum + number;
-            sumStr = sumStr + number;
+        if (isNaN(number)) {
+            alert("Please input number.");
+            document.getElementById("number").value = "";
         } else {
-            sum = sum + number;
-            sumStr = sumStr + "," + number;
+            if (sum == 0) {
+                sum = sum + number;
+                sumStr = sumStr + number;
+            } else {
+                sum = sum + number;
+                sumStr = sumStr + "," + number;
+            }
+            document.getElementById("number").value = "";
+            document.getElementById("show").innerHTML = sumStr + "] = " + sum;
         }
-        document.getElementById("number").value = "";
-        document.getElementById("show").innerHTML = sumStr + "] = " + sum;
     }
 </script>
 </body>

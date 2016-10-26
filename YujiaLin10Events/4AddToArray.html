@@ -16,7 +16,7 @@
         var show = document.getElementById("show");
         var result = "";
         for (var i = 0; i < names.length; i++) {
-            result = result + i + ": " + names[i] + "<br>";
+            result = result + (i + 1) + ": " + names[i] + "<br>";
         }
         show.innerHTML = result;
         document.getElementById("name").value = "";
