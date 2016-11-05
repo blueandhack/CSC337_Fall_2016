@@ -37,8 +37,8 @@ class DatabaseAdaptor
     public function addQuote($quote, $author)
     {
 
-        $stmt = $this->DB->prepare("INSERT INTO quotations (quote, author) VALUES (?,?)");
-        $stmt->execute(array($quote, $author));
+        $stmt = $this->DB->prepare("INSERT INTO quotations (quote, author,date) VALUES (?,?,?)");
+        $stmt->execute(array($quote, $author, time()));
     }
 
     public function updateQuote()
