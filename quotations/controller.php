@@ -9,9 +9,18 @@
 
 require_once "./DatabaseAdaptor.php";
 
-if (isset($_POST[''])) {
-
+if (isset($_POST['add'])) {
+    $myDatabaseAdaptor->addQuote($_POST['quote'], $_POST['author']);
 }
 
+if (isset($_POST['up'])) {
+    $id = $_POST['id'];
+    $myDatabaseAdaptor->updateQuoteUp($id);
+}
+
+if (isset($_POST['down'])) {
+    $id = $_POST['id'];
+    $myDatabaseAdaptor->updateQuoteDown($id);
+}
 
 header("Location: index.php");

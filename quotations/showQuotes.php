@@ -7,7 +7,7 @@
  */
 require_once './DataBaseAdaptor.php';
 
-if ($_POST['quote'] != null) {
+if (isset($_POST['quote'])) {
     $quote = $_POST['quote'];
     $author = $_POST['author'];
     $myDatabaseAdaptor->addQuote($quote, $author);
@@ -26,14 +26,18 @@ if ($_POST['quote'] != null) {
 <div class="header">
     <h1>Quotes</h1>
 </div>
-<button class="button" formaction="addQuote.html">Add Quote</button>
+<form class="button-form" action="index.php" method="get">
+    <input hidden name="mode" value="new">
+    <button class="button">Add Quote</button>
+</form>
 <?php
 $all = $myDatabaseAdaptor->getQuotesAsArray();
 
 
-
 foreach ($all as $record) {
-    echo " <div class='box'><div class='quote'><div class='say'>\"" . $record['quote'] . "\"</div><br><div class='author'>- " . $record['author'] . "</div></div><div class='vote'> " . $record['vote'] . "</div></div>";
+    echo " <div class='box'><div class='quote'><div class='say'>\"" . $record['quote'] . "\"</div><br><div class='author'>- " . $record['author'] . "</div></div><div class='vote'> " . $record['vote'] . "</div><div class='up-down'>"
+        . "<form class='up' action='controller.php' method='post'><input hidden name='up' value='up'><input hidden name='id' value='" . $record['id'] . "'><button>&#x25B2;</button></form><br>"
+        . "<form class='down' action='controller.php' method='post'><input hidden name='down' value='down'><input hidden name='id' value='" . $record['id'] . "'><button>&#x25BC;</button></form></div></div>";
 }
 ?>
 </body>

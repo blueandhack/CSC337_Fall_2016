@@ -3,11 +3,16 @@
     background-color: #6496c8;
     text-shadow: -1px 1px #417cb8;
     border: none;
+
 }
 
 .button:hover {
     background-color: #346392;
     text-shadow: -1px 1px #27496d;
+}
+
+.button-form {
+    margin-left: 20px;
 }
 
 .button:active {
@@ -43,6 +48,27 @@
     width: 90%;
 }
 
+.up-down {
+    float: right;
+    width: 3%;
+    text-align: right;
+}
+
+.up {
+    /*float: right;*/
+}
+
+.down {
+    /*float: right;*/
+}
+
 .vote {
     float: right;
+    width: 3%;
+    text-align: right;
 }
+
+.add-quote {
+    margin-left: 40px;
+}
+

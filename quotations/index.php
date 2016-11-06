@@ -9,5 +9,6 @@
 if (isset ($_GET ['mode'])) {
     if ($_GET ['mode'] === 'new')
         require_once("./addQuote.html");
-} else // default
+} else { // default
     require_once("./showQuotes.php");
+}

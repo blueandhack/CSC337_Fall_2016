@@ -29,7 +29,7 @@ class DatabaseAdaptor
 
     public function getQuotesAsArray()
     {
-        $stmt = $this->DB->prepare("SELECT * FROM quotations");
+        $stmt = $this->DB->prepare("SELECT * FROM quotations ORDER BY vote DESC, date DESC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -37,13 +37,30 @@ class DatabaseAdaptor
     public function addQuote($quote, $author)
     {
 
-        $stmt = $this->DB->prepare("INSERT INTO quotations (quote, author,date) VALUES (?,?,?)");
-        $stmt->execute(array($quote, $author, time()));
+//        $stmt = $this->DB->prepare("INSERT INTO quotations (quote, author,date) VALUES (?,?,?)");
+//        $stmt->execute(array($quote, $author, time()));
+        $stmt = $this->DB->prepare("INSERT INTO quotations (quote, author,date) VALUES (:quote,:author,now())");
+        $stmt->bindParam('quote', $quote);
+        $stmt->bindParam('author', $author);
+        $stmt->execute();
     }
 
-    public function updateQuote()
+    public function updateQuoteUp($id)
     {
+        $stmt = $this->DB->prepare("SELECT vote FROM quotations WHERE id=" . $id);
+        $stmt->execute();
+        $getVote = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->DB->prepare("UPDATE quotations SET date=now(), vote=" . ($getVote['vote'] + 1) . " WHERE id=" . $id);
+        $stmt->execute();
+    }
 
+    public function updateQuoteDown($id)
+    {
+        $stmt = $this->DB->prepare("SELECT vote FROM quotations WHERE id=" . $id);
+        $stmt->execute();
+        $getVote = $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->DB->prepare("UPDATE quotations SET date=now(), vote=" . ($getVote['vote'] - 1) . " WHERE id=" . $id);
+        $stmt->execute();
     }
 
 }
