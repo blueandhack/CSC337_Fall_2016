@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a quote</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<h1>Add a Quote</h1>
+<form class="add-quote" action="controller.php" method="post">
+    <input hidden name="add" value="add">
+    <label>Quote: </label><textarea name="quote" rows="5" cols="100" required></textarea><br>
+    <label>Author: </label><input name="author" type="text" required><br>
+    <br>
+    <input type="submit" value="Save Quotation">
+</form>
+</body>
+</html>

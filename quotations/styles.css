@@ -1,75 +1,42 @@
-.button {
-    color: #fff;
-    background-color: #6496c8;
-    text-shadow: -1px 1px #417cb8;
-    border: none;
+/* 
 
+The one style sheet for final project Part 1: Quotes Enhanced
+
+Authors: Rick Mercer, Hasanain Jamal, and W3C schools
+
+*/
+h1 {
+	text-align: center;
+	font-family: cursive;
 }
 
-.button:hover {
-    background-color: #346392;
-    text-shadow: -1px 1px #27496d;
-}
-
-.button-form {
-    margin-left: 20px;
-}
-
-.button:active {
-    background-color: #27496d;
-    text-shadow: -1px 1px #193047;
-}
-
-.header {
-    margin-right: auto;
-    margin-left: auto;
-    text-align: center;
-}
-
-.box {
-    margin: 20px 20px 20px 20px;
-    padding: 30px 10px 30px 10px;
-    border: 3px solid black;
-    border-radius: 10px;
-    height: 50px;
-}
-
-.say {
-    float: left;
-}
-
-.author {
-    float: right;
-    margin-bottom: -20px;
+.container {
+	vertical-align: text-top;
+	border: 2px black solid;
+	border-radius: 7px;
+	padding: 5px;
+	margin: 5px;
 }
 
 .quote {
-    float: left;
-    width: 90%;
+	font-family: cursive;
+	font-size: 1.1em;
+	float: left;
 }
 
-.up-down {
-    float: right;
-    width: 3%;
-    text-align: right;
+#rating {
+	font-size: 1.5em;
+	font-family: "Arial";
 }
 
-.up {
-    /*float: right;*/
+.buttons {
+	width: 30px;
+	height: 50px;
+	float: left;
 }
 
-.down {
-    /*float: right;*/
+.author {
+	clear: both;
+	text-align: left;
+	width: 300px;
 }
-
-.vote {
-    float: right;
-    width: 3%;
-    text-align: right;
-    font-size: 25px;
-}
-
-.add-quote {
-    margin-left: 40px;
-}
-
