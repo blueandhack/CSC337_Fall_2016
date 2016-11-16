@@ -13,6 +13,8 @@
 //
 require_once './DataBaseAdaptor.php';
 
+session_start();
+
 if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
     $author = $_POST ['author'];
     $quote = $_POST ['quote'];
@@ -43,9 +45,10 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
     }
     if ($action === 'login') {
         if ($myDatabaseFunctions->checkUser($username, $password) == 1) {
-            echo "success";
+            $_SESSION['user'] = $username;
+            header("Location: ./index.php?mode=showQuotes");
         } else {
-            echo "fail";
+            header("Location: ./index.php?mode=login");
         }
     }
 
@@ -53,6 +56,9 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
     $action = $_POST ['action'];
     if ($action === 'unFlag') {
         $myDatabaseFunctions->unFlagAll();
+    }
+    if ($action === 'logout') {
+        session_destroy();
     }
     header("Location: ./index.php?mode=showQuotes");
 }

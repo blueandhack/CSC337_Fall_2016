@@ -14,7 +14,7 @@ Authors: Hassanain Jamal and Rick Mercer
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rick Mercer's Quotation Service</title>
+    <title>Yujia Lin's Quotation Service</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
@@ -28,9 +28,9 @@ if (isset ($_GET ['mode'])) {
         require_once("./login.html");
     elseif ($_GET ['mode'] === 'register')
         require_once("./register.html");
-} else // default
+} else { // default
     require_once("./showQuotes.php");
-
+}
 ?>
 </body>
 </html>

@@ -16,6 +16,7 @@ Author: Rick Mercer
 <?php
 require_once './DataBaseAdaptor.php';
 $arrayOfQuotes = $myDatabaseFunctions->getQuotesAsArray();
+session_start();
 ?>
 
 <h1>Quotes</h1>
@@ -36,10 +37,19 @@ $arrayOfQuotes = $myDatabaseFunctions->getQuotesAsArray();
 </form>
 
 <br>
+<?php
+if (isset($_SESSION['user'])) { ?>
+    <form action="controller.php" method="post">
+        <button name="action" value="unFlag">Unflag All</button>
+    </form>
 
-<form action="controller.php" method="post">
-    <button name="action" value="unFlag">Unflag All</button>
-</form>
+    <form action="controller.php" method="post">
+        <button name="action" value="logout">Logout</button>
+    </form>
+    <?php
+}
+?>
+
 
 <?php
 session_start(); // Need this in each file before $_SESSION['key'] is used.
