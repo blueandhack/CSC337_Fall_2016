@@ -13,23 +13,23 @@
 //
 require_once './DataBaseAdaptor.php';
 
-if (isset ( $_POST ['author'] ) && isset ( $_POST ['quote'] )) {
-	$author = $_POST ['author'];
-	$quote = $_POST ['quote'];
-	$myDatabaseFunctions->addNewQuote ( $quote, $author );
-	header ( "Location: ./index.php?mode=showQuotes" );
-} elseif (isset ( $_POST ['action'] ) && isset ( $_POST ['ID'] )) {
-	$action = $_POST ['action'];
-	$ID = $_POST ['ID'];
-	if ($action === 'increase') {
-		$myDatabaseFunctions->raiseRating ( $ID );
-	}
-	if ($action === 'decrease') {
-		$myDatabaseFunctions->lowerRating ( $ID );
-	}
-	if ($action === 'flag') {
-		$myDatabaseFunctions->flag ( $ID );
-	}
-	  header ( "Location: ./index.php?mode=showQuotes" );
+if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
+    $author = $_POST ['author'];
+    $quote = $_POST ['quote'];
+    $myDatabaseFunctions->addNewQuote($quote, $author);
+    header("Location: ./index.php?mode=showQuotes");
+} elseif (isset ($_POST ['action']) && isset ($_POST ['ID'])) {
+    $action = $_POST ['action'];
+    $ID = $_POST ['ID'];
+    if ($action === 'increase') {
+        $myDatabaseFunctions->raiseRating($ID);
+    }
+    if ($action === 'decrease') {
+        $myDatabaseFunctions->lowerRating($ID);
+    }
+    if ($action === 'flag') {
+        $myDatabaseFunctions->flag($ID);
+    }
+    header("Location: ./index.php?mode=showQuotes");
 }
 ?>

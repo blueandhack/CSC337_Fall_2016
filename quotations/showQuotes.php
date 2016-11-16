@@ -15,44 +15,48 @@ Author: Rick Mercer
 
 <?php
 require_once './DataBaseAdaptor.php';
-$arrayOfQuotes = $myDatabaseFunctions->getQuotesAsArray ();
+$arrayOfQuotes = $myDatabaseFunctions->getQuotesAsArray();
 ?>
 
 <h1>Quotes</h1>
 
 <!-- Add a horizontal menu -->
 
-<a href="addQuote.html">Add Quote</a>
-	<br>
+<form class="button-form" action="index.php" method="get">
+    <input hidden name="mode" value="new">
+    <button class="button">Add Quote</button>
+</form>
+
+<br>
 
 <?php
-session_start (); // Need this in each file before $_SESSION['key'] is used.
+session_start(); // Need this in each file before $_SESSION['key'] is used.
 ?>
 
 <!--  Show all quotes on a separate row -->
-<?php foreach($arrayOfQuotes as $quote) { ?>
+<?php foreach ($arrayOfQuotes as $quote) { ?>
 
-<div class="container">
-		 <?= '"'. $quote['quote'] . '"' ?>  
-     <br>
-	<p class="author"> 
-     &nbsp;&nbsp;--
-     <?= $quote['author'] ?>  
-     <br>
-	</p>
+    <div class="container">
+        <?= '"' . $quote['quote'] . '"' ?>
+        <br>
+        <p class="author">
+            &nbsp;&nbsp;--
+            <?= $quote['author'] ?>
+            <br>
+        </p>
 
-	<form action="controller.php" method="post">
-		<input type="hidden" name="ID" value="<?= $quote['id']?>">
-		&nbsp;&nbsp;&nbsp;
-		<button name="action" value="increase">+</button>
+        <form action="controller.php" method="post">
+            <input type="hidden" name="ID" value="<?= $quote['id'] ?>">
+            &nbsp;&nbsp;&nbsp;
+            <button name="action" value="increase">+</button>
 
-		 <span id="rating"> <?= $quote['rating']?> </span>
-		<button name="action" value="decrease">-</button>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	</form>
+            <span id="rating"> <?= $quote['rating'] ?> </span>
+            <button name="action" value="decrease">-</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </form>
 
-</div>
-<br>
+    </div>
+    <br>
 
 <?php } // End for loop  ?>
 
