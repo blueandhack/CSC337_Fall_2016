@@ -30,6 +30,30 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
     if ($action === 'flag') {
         $myDatabaseFunctions->flag($ID);
     }
+
+    header("Location: ./index.php?mode=showQuotes");
+} elseif (isset ($_POST ['action']) && isset ($_POST ['username']) && isset ($_POST ['password'])) {
+    $action = $_POST ['action'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if ($action === 'register') {
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $myDatabaseFunctions->addNewUser($username, $password);
+        header("Location: ./index.php?mode=showQuotes");
+    }
+    if ($action === 'login') {
+        if ($myDatabaseFunctions->checkUser($username, $password) == 1) {
+            echo "success";
+        } else {
+            echo "fail";
+        }
+    }
+
+} elseif (isset ($_POST ['action'])) {
+    $action = $_POST ['action'];
+    if ($action === 'unFlag') {
+        $myDatabaseFunctions->unFlagAll();
+    }
     header("Location: ./index.php?mode=showQuotes");
 }
 ?>

@@ -23,11 +23,23 @@ $arrayOfQuotes = $myDatabaseFunctions->getQuotesAsArray();
 <!-- Add a horizontal menu -->
 
 <form class="button-form" action="index.php" method="get">
+    <input hidden name="mode" value="register">
+    <button class="button">Register</button>
+</form>
+<form class="button-form" action="index.php" method="get">
+    <input hidden name="mode" value="login">
+    <button class="button">Login</button>
+</form>
+<form class="button-form" action="index.php" method="get">
     <input hidden name="mode" value="new">
     <button class="button">Add Quote</button>
 </form>
 
 <br>
+
+<form action="controller.php" method="post">
+    <button name="action" value="unFlag">Unflag All</button>
+</form>
 
 <?php
 session_start(); // Need this in each file before $_SESSION['key'] is used.
@@ -53,6 +65,8 @@ session_start(); // Need this in each file before $_SESSION['key'] is used.
             <span id="rating"> <?= $quote['rating'] ?> </span>
             <button name="action" value="decrease">-</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <button name="action" value="flag">flag</button>
         </form>
 
     </div>

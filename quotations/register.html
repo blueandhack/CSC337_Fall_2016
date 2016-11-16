@@ -17,3 +17,14 @@ TODO: Add a form to login
 TDOO: use session_start (); and echo a message if the user name is already taken
 <p></p>
 Feel free to add a first and last name in addtion to the user name and password
+
+<?php
+
+?>
+<br>
+<form action="controller.php" method="post">
+    <input type="hidden" name="action" value="register">
+    <input type="text" name="username" required><br>
+    <input type="password" name="password" required><br>
+    <input type="submit">
+</form>

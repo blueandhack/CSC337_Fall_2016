@@ -51,7 +51,7 @@ class DatabaseAdaptor
     // Insert a new quote into the database
     public function addNewQuote($quote, $author)
     {
-        $stmt = $this->DB->prepare("INSERT INTO quotations (added, quote, author, rating, flagged ) values(now(), :quote, :author, 0, 0)");
+        $stmt = $this->DB->prepare("INSERT INTO quotations (added, quote, author, rating, flagged ) VALUES(now(), :quote, :author, 0, 0)");
         $stmt->bindParam('quote', $quote);
         $stmt->bindParam('author', $author);
         $stmt->execute();
@@ -72,6 +72,36 @@ class DatabaseAdaptor
         $stmt->bindParam('ID', $ID);
         $stmt->execute();
     }
+
+    public function flag($ID)
+    {
+        $stmt = $this->DB->prepare("UPDATE quotations SET flagged=1 WHERE id= :ID");
+        $stmt->bindParam('ID', $ID);
+        $stmt->execute();
+    }
+
+    public function unFlagAll()
+    {
+        $stmt = $this->DB->prepare("UPDATE quotations SET flagged=0 WHERE flagged=1");
+        $stmt->execute();
+    }
+
+    public function addNewUser($username, $password)
+    {
+        $stmt = $this->DB->prepare("INSERT INTO user (username, password, registered) VALUES(:username, :password, now())");
+        $stmt->bindParam('username', $username);
+        $stmt->bindParam('password', $password);
+        $stmt->execute();
+    }
+
+    public function checkUser($username, $password)
+    {
+        $stmt = $this->DB->prepare('SELECT password FROM user WHERE username="' . $username . '"');
+        $stmt->execute();
+        $getUsernamePassword = $stmt->fetch(PDO::FETCH_ASSOC);
+        return password_verify($password, $getUsernamePassword['password']);
+    }
+
 
 } // end class DatabaseAdaptor
 

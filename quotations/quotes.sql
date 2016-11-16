@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.28)
 # Database: quotes
-# Generation Time: 2016-11-16 01:14:19 +0000
+# Generation Time: 2016-11-16 10:12:07 +0000
 # ************************************************************
 
 
@@ -40,14 +40,38 @@ LOCK TABLES `quotations` WRITE;
 
 INSERT INTO `quotations` (`id`, `added`, `quote`, `author`, `rating`, `flagged`)
 VALUES
-	(4,'2016-11-06 18:22:40','Nothing has more strength than dire necessity.','Euripides',-2,0),
-	(5,'2016-11-07 08:49:00','Fortune and love favor the brave.','Ovid',-2,0),
+	(4,'2016-11-06 18:22:40','Nothing has more strength than dire necessity.','Euripides',-1,0),
+	(5,'2016-11-07 08:49:00','Fortune and love favor the brave.','Ovid',-3,0),
 	(6,'2016-11-07 11:16:15','Great artists suffer for the people. ','Marvin Gaye',-2,0),
-	(7,'2016-11-06 18:26:50','I\'d rather have roses on my table than diamonds on my neck. ','Emma Goldman',3,0),
-	(8,'2016-11-07 11:16:04','a','a',2,0),
-	(9,'2016-11-09 08:33:54','abc','abc',2,0);
+	(7,'2016-11-06 18:26:50','I\'d rather have roses on my table than diamonds on my neck. ','Emma Goldman',4,0),
+	(8,'2016-11-07 11:16:04','a','a',3,0),
+	(9,'2016-11-09 08:33:54','abc','abc',3,0);
 
 /*!40000 ALTER TABLE `quotations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table user
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(64) NOT NULL DEFAULT '',
+  `password` varchar(256) NOT NULL DEFAULT '',
+  `registered` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+
+INSERT INTO `user` (`id`, `username`, `password`, `registered`)
+VALUES
+	(1,'a','$2y$10$OcWT6RSD/MFqtMVPqlqE2ubNvJCPuJVF97MzY9LIIR2TSsQ9FtKl.','2016-11-16 02:57:15');
+
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

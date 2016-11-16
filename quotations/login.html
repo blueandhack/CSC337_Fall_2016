@@ -20,3 +20,11 @@ TODO: Add client side validation to ensure text is in both input fields
 TODO: Add server side validation.  Notfify if login failed, clear the input fields
 <br>
 TDOO: use session_start (); and echo a message if the login failed
+
+<br>
+<form action="controller.php" method="post">
+    <input type="hidden" name="action" value="login">
+    <input type="text" name="username" required><br>
+    <input type="password" name="password" required><br>
+    <input type="submit">
+</form>
