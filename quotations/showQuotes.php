@@ -23,32 +23,39 @@ session_start();
 
 <!-- Add a horizontal menu -->
 
-<form class="button-form" action="index.php" method="get">
-    <input hidden name="mode" value="register">
-    <button class="button">Register</button>
-</form>
-<form class="button-form" action="index.php" method="get">
-    <input hidden name="mode" value="login">
-    <button class="button">Login</button>
-</form>
-<form class="button-form" action="index.php" method="get">
-    <input hidden name="mode" value="new">
-    <button class="button">Add Quote</button>
-</form>
+<!--<form class="button-form" action="index.php" method="get">-->
+<!--    <input hidden name="mode" value="register">-->
+<!--    <button class="button">Register</button>-->
+<!--</form>-->
+<!--<form class="button-form" action="index.php" method="get">-->
+<!--    <input hidden name="mode" value="login">-->
+<!--    <button class="button">Login</button>-->
+<!--</form>-->
+<!--<form class="button-form" action="index.php" method="get">-->
+<!--    <input hidden name="mode" value="new">-->
+<!--    <button class="button">Add Quote</button>-->
+<!--</form>-->
+
+
+<ul>
+    <li><a href="index.php?mode=register">Register</a></li>
+    <li><a href="index.php?mode=login">Login</a></li>
+    <li><a href="index.php?mode=new">Add Quote</a></li>
+</ul>
+
 
 <br>
 <?php
 if (isset($_SESSION['user'])) { ?>
     <form action="controller.php" method="post">
-        <button name="action" value="unFlag">Unflag All</button>
+        <button class="menu" name="action" value="unFlag">Unflag All</button>
+        <button class="menu" name="action" value="logout">Logout</button>
     </form>
 
-    <form action="controller.php" method="post">
-        <button name="action" value="logout">Logout</button>
-    </form>
     <?php
 }
 ?>
+<br>
 
 
 <?php

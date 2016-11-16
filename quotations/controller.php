@@ -43,7 +43,7 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
         if ($myDatabaseFunctions->addNewUser($username, $password) == 1) {
             header("Location: ./index.php?mode=showQuotes");
         } else {
-            $_SESSION['registerError'] = "<div>can not use the username</div>";
+            $_SESSION['registerError'] = "<div class='info'>can not use the username</div>";
             header("Location: ./index.php?mode=register");
         }
 
@@ -53,7 +53,7 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
             $_SESSION['user'] = $username;
             header("Location: ./index.php?mode=showQuotes");
         } else {
-            $_SESSION['loginError'] = "<div>Invalid Username/Password</div>";
+            $_SESSION['loginError'] = "<div class='info'>Invalid Username/Password</div>";
             header("Location: ./index.php?mode=login");
         }
     }
