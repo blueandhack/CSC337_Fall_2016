@@ -88,10 +88,17 @@ class DatabaseAdaptor
 
     public function addNewUser($username, $password)
     {
+        $stmt = $this->DB->prepare('SELECT username FROM user WHERE username="' . $username . '"');
+        $stmt->execute();
+        $getUsername = $stmt->fetch(PDO::FETCH_ASSOC);
+        if ($getUsername['username'] === $username) {
+            return false;
+        }
         $stmt = $this->DB->prepare("INSERT INTO user (username, password, registered) VALUES(:username, :password, now())");
         $stmt->bindParam('username', $username);
         $stmt->bindParam('password', $password);
         $stmt->execute();
+        return true;
     }
 
     public function checkUser($username, $password)

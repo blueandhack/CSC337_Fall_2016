@@ -40,14 +40,20 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
     $password = $_POST['password'];
     if ($action === 'register') {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $myDatabaseFunctions->addNewUser($username, $password);
-        header("Location: ./index.php?mode=showQuotes");
+        if ($myDatabaseFunctions->addNewUser($username, $password) == 1) {
+            header("Location: ./index.php?mode=showQuotes");
+        } else {
+            $_SESSION['registerError'] = "<div>can not use the username</div>";
+            header("Location: ./index.php?mode=register");
+        }
+
     }
     if ($action === 'login') {
         if ($myDatabaseFunctions->checkUser($username, $password) == 1) {
             $_SESSION['user'] = $username;
             header("Location: ./index.php?mode=showQuotes");
         } else {
+            $_SESSION['loginError'] = "<div>Invalid Username/Password</div>";
             header("Location: ./index.php?mode=login");
         }
     }
