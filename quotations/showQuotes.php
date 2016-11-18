@@ -22,21 +22,6 @@ session_start();
 <h1>Quotes</h1>
 
 <!-- Add a horizontal menu -->
-
-<!--<form class="button-form" action="index.php" method="get">-->
-<!--    <input hidden name="mode" value="register">-->
-<!--    <button class="button">Register</button>-->
-<!--</form>-->
-<!--<form class="button-form" action="index.php" method="get">-->
-<!--    <input hidden name="mode" value="login">-->
-<!--    <button class="button">Login</button>-->
-<!--</form>-->
-<!--<form class="button-form" action="index.php" method="get">-->
-<!--    <input hidden name="mode" value="new">-->
-<!--    <button class="button">Add Quote</button>-->
-<!--</form>-->
-
-
 <ul>
     <li><a href="index.php?mode=register">Register</a></li>
     <li><a href="index.php?mode=login">Login</a></li>
@@ -90,6 +75,3 @@ session_start(); // Need this in each file before $_SESSION['key'] is used.
     <br>
 
 <?php } // End for loop  ?>
-
-</body>
-</html>

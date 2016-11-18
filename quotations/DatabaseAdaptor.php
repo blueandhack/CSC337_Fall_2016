@@ -43,7 +43,7 @@ class DatabaseAdaptor
     public function getQuotesAsArray()
     {
         // possible values of flagged are 't', 'f';
-        $stmt = $this->DB->prepare("SELECT * FROM quotations WHERE flagged=0 ORDER BY rating DESC, added");
+        $stmt = $this->DB->prepare("SELECT * FROM quotations WHERE flagged=0 ORDER BY rating DESC, added DESC ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -60,7 +60,7 @@ class DatabaseAdaptor
     // Raise the rating of the quote with the given $ID by 1
     public function raiseRating($ID)
     {
-        $stmt = $this->DB->prepare("UPDATE quotations SET rating=rating+1 WHERE id= :ID");
+        $stmt = $this->DB->prepare("UPDATE quotations SET rating=rating+1,added=now() WHERE id= :ID");
         $stmt->bindParam('ID', $ID);
         $stmt->execute();
     }
@@ -68,7 +68,7 @@ class DatabaseAdaptor
     // Lower the rating of the quote with the given $ID by 1
     public function lowerRating($ID)
     {
-        $stmt = $this->DB->prepare("UPDATE quotations SET rating=rating-1 WHERE id= :ID");
+        $stmt = $this->DB->prepare("UPDATE quotations SET rating=rating-1,added=now() WHERE id= :ID");
         $stmt->bindParam('ID', $ID);
         $stmt->execute();
     }

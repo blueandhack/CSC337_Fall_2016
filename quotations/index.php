@@ -14,7 +14,7 @@ Authors: Hassanain Jamal and Rick Mercer
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Yujia Lin's Quotation Service</title>
+    <title>Yujia Lin & Zhiying Li's Quotation Service</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>

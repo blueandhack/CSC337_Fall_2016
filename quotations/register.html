@@ -20,8 +20,9 @@ Authors: Rick Mercer and Hassanain Jamal
 <?php
     session_start ();
 ?>
-<br>
+
 <h3>Register</h3>
+<br>
 <div class="box">
     <form action="controller.php" method="post">
         <input type="hidden" name="action" value="register">
@@ -34,5 +35,6 @@ Authors: Rick Mercer and Hassanain Jamal
     if(isset($_SESSION['registerError'])){
         echo $_SESSION['registerError'];
     }
+    $_SESSION['registerError'] = '';
 ?>
 </div>
