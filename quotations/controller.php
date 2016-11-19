@@ -47,7 +47,7 @@ if (isset ($_POST ['author']) && isset ($_POST ['quote'])) {
     if ($action === 'register') {
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         if ($myDatabaseFunctions->addNewUser($username, $password) == 1) {
-            $_SESSION['user'] = $username;
+//            $_SESSION['user'] = $username;
             header("Location: ./index.php?mode=showQuotes");
         } else {
             $_SESSION['registerError'] = "<div class='info'>The username already taken, please change the username</div>";

@@ -6,17 +6,6 @@ This form will be absorbed by the controller
 Authors: Rick Mercer and Hassanain Jamal
 -->
 
-<!--session_start (); // Need this in each file before $_SESSION['key'] is used.-->
-
-
-<!--TODO: Style this with a border, rounded edges-->
-<!--<p></p>-->
-<!--TODO: Add a form to login-->
-<!--<p></p>-->
-<!--TDOO: use session_start (); and echo a message if the user name is already taken-->
-<!--<p></p>-->
-<!--Feel free to add a first and last name in addition to the user name and password-->
-
 <?php
     session_start ();
 ?>
@@ -26,15 +15,15 @@ Authors: Rick Mercer and Hassanain Jamal
 <div class="box">
     <form action="controller.php" method="post">
         <input type="hidden" name="action" value="register">
-        <label>Username:</label><input type="text" name="username" required><br>
-        <label>Password:</label><input type="password" name="password" required><br>
+        <label>Username:</label><input type="text" name="username" minlength="4" required><br>
+        <label>Password:</label><input type="password" name="password" minlength="6" required><br>
         <input type="submit">
     </form>
 
     <?php
-    if(isset($_SESSION['registerError'])){
-        echo $_SESSION['registerError'];
-    }
-    $_SESSION['registerError'] = '';
-?>
+        if(isset($_SESSION['registerError'])){
+            echo $_SESSION['registerError'];
+        }
+        $_SESSION['registerError'] = '';
+    ?>
 </div>

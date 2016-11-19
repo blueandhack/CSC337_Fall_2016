@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.6.28)
 # Database: quotes
-# Generation Time: 2016-11-18 04:51:48 +0000
+# Generation Time: 2016-11-18 20:48:57 +0000
 # ************************************************************
 
 
@@ -46,7 +46,14 @@ VALUES
 	(7,'2016-11-17 21:35:54','I\'d rather have roses on my table than diamonds on my neck. ','Emma Goldman',4,0),
 	(8,'2016-11-07 11:16:04','a','a',4,0),
 	(9,'2016-11-09 08:33:54','abc','abc',4,0),
-	(10,'2016-11-17 21:49:03','I I I','123',-2,0);
+	(10,'2016-11-17 21:49:03','I I I','123',-2,0),
+	(11,'2016-11-18 13:21:24',' ','a',0,0),
+	(12,'2016-11-18 13:22:07','a','aaa',0,0),
+	(13,'2016-11-18 13:22:23','adada','adada',0,0),
+	(14,'2016-11-18 13:22:51',' ','adsada',0,0),
+	(15,'2016-11-18 13:25:15',' adsadaddasdadsaadas','a',0,0),
+	(16,'2016-11-18 13:25:28','asdada','a',0,0),
+	(17,'2016-11-18 13:25:34','asdada','asdasdfsdfsfsafsf',0,0);
 
 /*!40000 ALTER TABLE `quotations` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -73,7 +80,8 @@ VALUES
 	(1,'abcd','$2y$10$OcWT6RSD/MFqtMVPqlqE2ubNvJCPuJVF97MzY9LIIR2TSsQ9FtKl.','2016-11-16 02:57:15'),
 	(2,'admin','$2y$10$284BKL9FSCmVJK7Y1F8XFeg7O0Sdv.Tpx5nToE3k.7uMG0L7fEl.u','2016-11-17 21:36:41'),
 	(3,'tomy','$2y$10$vxhFZ9Q36lUqOZiuWFxDd.vkiLU.lYVLuzAEX2n97H6QT1FRcPJ2.','2016-11-17 21:39:22'),
-	(4,'abcde','$2y$10$r0ZWmUNGpZecT75xUyMk5eLfS9UDFZmdMzn4s0gwpydilQn8Fmw7u','2016-11-17 21:48:16');
+	(4,'abcde','$2y$10$r0ZWmUNGpZecT75xUyMk5eLfS9UDFZmdMzn4s0gwpydilQn8Fmw7u','2016-11-17 21:48:16'),
+	(5,'adcd','$2y$10$GQtr3.QG5e8EI1ahfEQ2Zuf4xmscMgnRYwsx7AG0/SiGRw6JShCB2','2016-11-18 12:55:29');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
