@@ -14,8 +14,8 @@ Authors: Rick Mercer and Hassanain Jamal
                                                                 placeholder="Enter new quote" minlength="1"
                                                                 required></textarea>
         <p></p>
-        <span class="labels">Author:&nbsp;</span><input type="text" name="author" placeholder="Author" minlength="1"
-                                                        pattern="^([^ ])+"
+        <span class="labels">Author:&nbsp;</span><input id="inputArea" type="text" name="author" placeholder="Author"
+                                                        minlength="1"
                                                         required>
         <p></p>
         <span class="labels"></span><input type="submit" name="submit" value="Add Quote">
@@ -25,10 +25,27 @@ Authors: Rick Mercer and Hassanain Jamal
 <script type="text/javascript">
     function checkTextArea() {
         var quoteArea = document.getElementById("quoteArea").value;
-        if (quoteArea == " ") {
-            alert("Please input quote again");
+        var inputArea = document.getElementById("inputArea").value;
+
+        var flagOne = 0;
+        var flagTwo = 0;
+
+        for (var i = 0; i < quoteArea.length; i++) {
+            if (quoteArea[i] == ' ') {
+                flagOne++;
+            }
+        }
+        for (i = 0; i < inputArea.length; i++) {
+            if (inputArea[i] == ' ') {
+                flagTwo++;
+            }
+        }
+
+        if (flagOne == quoteArea.length || flagTwo == inputArea.length) {
+            alert("Please input something, but you can not input whole spaces.");
             return false;
         }
+
         return true;
     }
 </script>

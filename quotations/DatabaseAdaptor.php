@@ -19,9 +19,9 @@ class DatabaseAdaptor
     // table quote. In this assignment you will also need a new table named 'users'
     public function __construct()
     {
-        $db = 'mysql:dbname=quotes;host=127.0.0.1';
+        $db = 'mysql:dbname=quotes;host=localhost';
         $user = 'root';
-        $password = '';
+        $password = 'root';
 
         try {
             $this->DB = new PDO ($db, $user, $password);
