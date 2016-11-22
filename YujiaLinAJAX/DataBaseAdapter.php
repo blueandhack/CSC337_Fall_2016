@@ -6,9 +6,9 @@ class TitleDataBase
 
     public function __construct()
     {
-        $db = 'mysql:dbname=movie_titles;host=127.0.0.1';
+        $db = 'mysql:dbname=movie_titles;host=localhost';
         $user = 'root';
-        $password = '';
+        $password = 'root';
 
         try {
             $this->DB = new PDO ($db, $user, $password);
@@ -26,11 +26,11 @@ class TitleDataBase
 
         // TODO: Complete this function so it returns all rows
         // where the parameter is found as a substring, case insensitive
-
+        $stmt = $this->DB->prepare("SELECT * FROM titles WHERE name_year LIKE '" . $input . "'");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 }
 
 $movieTitles = new TitleDataBase ();
-
-?>
