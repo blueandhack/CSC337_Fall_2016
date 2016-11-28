@@ -21,9 +21,12 @@ Enter a search string:
                 var array = JSON.parse(xhttp.responseText);
                 console.log(array);
                 var str = "<br>Results for the string '" + getSub + "'<br><br>";
-
-                for (var i = 0; i < array.length; i++) {
-                    str += array[i]["name_year"] + '<br>';
+                if (array.length == 0) {
+                    str += "Sorry! We found nothing!";
+                } else {
+                    for (var i = 0; i < array.length; i++) {
+                        str += array[i]["name_year"] + '<br>';
+                    }
                 }
                 document.getElementById("divToChange").innerHTML = str;
 
