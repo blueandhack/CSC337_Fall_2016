@@ -21,35 +21,32 @@ class TitleDataBase
 
     public function getMovieByMovieName($movieName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
         $movieName = $movieName . "%";
 
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
-    public function getMovieByFirstName($input)
+    public function getMovieByFirstName($firstName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
-        $input = $input . "%";
+        $firstName = $firstName . "%";
 
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE actors.first_name LIKE '" . $input . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE actors.first_name LIKE '" . $firstName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
-    public function getMovieByLastName($input)
+    public function getMovieByLastName($lastName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
-        $input = $input . "%";
+        $lastName = $lastName . "%";
 
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE actors.last_name LIKE '" . $input . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE actors.last_name LIKE '" . $lastName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -57,11 +54,11 @@ class TitleDataBase
 
     public function getMovieByMovieNameAndLastName($movieName, $lastName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
         $movieName = $movieName . "%";
         $lastName = $lastName . "%";
+
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' ,actors.last_name LIKE '" . $lastName . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' AND actors.last_name LIKE '" . $lastName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -69,11 +66,11 @@ class TitleDataBase
 
     public function getMovieByMovieNameAndFirstName($movieName, $firstName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
         $movieName = $movieName . "%";
+        $firstName = $firstName . "%";
 
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' ,actors.first_name LIKE '" . $firstName . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' AND actors.first_name LIKE '" . $firstName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -81,12 +78,11 @@ class TitleDataBase
 
     public function getMovieByFirstNameAndLastName($firstName, $lastName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
         $firstName = $firstName . "%";
         $lastName = $lastName . "%";
 
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE actors.first_name LIKE '" . $firstName . "' ,actors.last_name LIKE '" . $lastName . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE actors.first_name LIKE '" . $firstName . "' AND actors.last_name LIKE '" . $lastName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -94,12 +90,12 @@ class TitleDataBase
 
     public function getMovieByMovieNameAndFirstNameAndLastName($movieName, $firstName, $lastName)
     {
-        // Need the "%" symbols to allow like something like a search like *1952*
+        $movieName = $movieName . "%";
         $firstName = $firstName . "%";
         $lastName = $lastName . "%";
 
         // where the parameter is found as a substring, case insensitive
-        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' , actors.first_name LIKE '" . $firstName . "' ,actors.last_name LIKE '" . $lastName . "'");
+        $stmt = $this->DB->prepare("SELECT movies.name, actors.first_name, actors.last_name, movies.year FROM movies JOIN roles ON movies.id = roles.movie_id JOIN actors ON roles.actor_id = actors.id WHERE movies.name LIKE '" . $movieName . "' AND actors.first_name LIKE '" . $firstName . "' AND actors.last_name LIKE '" . $lastName . "' LIMIT 50");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
 

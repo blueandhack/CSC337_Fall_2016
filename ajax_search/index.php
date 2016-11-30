@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Movie Search</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
@@ -40,22 +41,36 @@ Actor: <input type="text" id="actor_name" onkeyup="getMovies()"> (last name, fir
 
         }
 
-        if (getMovieName == "") {
+        if (getMovieName == "" && getFirstNameAndLastName == "") {
             document.getElementById("divToChange").innerHTML = "";
         } else {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
                 if (xhttp.readyState == 4 && xhttp.status == 200) {
                     var array = JSON.parse(xhttp.responseText);
-                    console.log(array);
-                    var str = "<br>Results for the string '" + getMovieName + "'<br><br>";
+
+                    var str = "<br>Results for those keywords ";
+                    if (getMovieName != "") {
+                        str += " Title:'" + getMovieName + "' ";
+                    }
+                    if (getFirstName != "") {
+                        str += " First Name:'" + getFirstName + "' ";
+                    }
+                    if (getLastName != "") {
+                        str += " Last Name:'" + getLastName + "' ";
+                    }
+
+                    str += "<br><br>";
+
                     if (array.length == 0) {
                         str += "Sorry! We found nothing!";
                     } else {
+                        str += "<table><tr><th>Title</th><th>Actor</th><th>Year</th></tr>";
                         for (var i = 0; i < array.length; i++) {
-                            str += array[i]["name"] + ' ' + array[i]["first_name"] + ' ' + array[i]["last_name"] + ' ' + array[i]["year"] + '<br>';
+                            str += "<tr><td>" + array[i]["name"] + "</td><td>" + array[i]["first_name"] + ' ' + array[i]["last_name"] + "</td><td>" + array[i]["year"] + '</td><tr>';
                         }
                     }
+                    str += "</table>";
                     document.getElementById("divToChange").innerHTML = str;
 
                 }
