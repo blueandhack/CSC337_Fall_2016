@@ -13,15 +13,32 @@
 <br>
 
 Title: <input type="text" id="movie_name" onkeyup="getMovies()">
-Actor: <input type="text" id="actor"> (last name, first name)
+Actor: <input type="text" id="actor_name" onkeyup="getMovies()"> (last name, first name)
 <div id="divToChange"></div>
 
 <script>
     function getMovies() {
         var getMovieName = document.getElementById("movie_name").value;
+        var getFirstNameAndLastName = document.getElementById("actor_name").value;
 
         var getLastName = "";
         var getFirstName = "";
+
+        if (getFirstNameAndLastName.split(", ").length == 2) {
+            var name = getFirstNameAndLastName.split(", ");
+            getLastName = name[0];
+            getFirstName = name[1];
+        } else if (getFirstNameAndLastName.split(", ").length == 1 && getFirstNameAndLastName.search(", ") == -1) {
+            if (getFirstNameAndLastName.charAt(getFirstNameAndLastName.length - 1) == ',') {
+                getLastName = getFirstNameAndLastName.substring(0, getFirstNameAndLastName.length - 1);
+            } else {
+                getLastName = getFirstNameAndLastName;
+            }
+        } else if (getFirstNameAndLastName.split(", ").length == 1 && getFirstNameAndLastName.search(", ") != -1) {
+
+            getFirstName = getFirstNameAndLastName;
+
+        }
 
         if (getMovieName == "") {
             document.getElementById("divToChange").innerHTML = "";
@@ -46,7 +63,7 @@ Actor: <input type="text" id="actor"> (last name, first name)
             xhttp.open("GET", "controller.php?movie_name=" + getMovieName + "&first_name=" + getFirstName + "&last_name=" + getLastName, true);
             xhttp.send();
         }
-//        document.getElementById("substring").value = "";
+
     }
 </script>
 
