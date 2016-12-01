@@ -41,7 +41,7 @@ Actor: <input type="text" id="actor_name" onkeyup="getMovies()"> (last name, fir
 
         }
 
-        if (getMovieName == "" && getFirstNameAndLastName == "") {
+        if ((getMovieName == "" && getFirstNameAndLastName == "") || (getMovieName == "" && getFirstNameAndLastName == ", ")) {
             document.getElementById("divToChange").innerHTML = "";
         } else {
             var xhttp = new XMLHttpRequest();

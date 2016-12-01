@@ -1,9 +1,18 @@
+body{
+    background-color: whitesmoke;
+}
+
 table, th, td {
-    border: 1px solid black;
+    border: 3px solid cornflowerblue;
     border-collapse: collapse;
 }
 
-th, td {
+th {
+    padding: 5px;
+    text-align: center;
+}
+
+td {
     padding: 5px;
     text-align: left;
 }
