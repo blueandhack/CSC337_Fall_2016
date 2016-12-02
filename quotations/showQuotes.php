@@ -43,9 +43,6 @@ if (isset($_SESSION['user'])) { ?>
 <br>
 
 
-<?php
-session_start(); // Need this in each file before $_SESSION['key'] is used.
-?>
 
 <!--  Show all quotes on a separate row -->
 <?php foreach ($arrayOfQuotes as $quote) { ?>
